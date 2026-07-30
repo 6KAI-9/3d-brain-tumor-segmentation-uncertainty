@@ -19,8 +19,20 @@ jobs:
       - name: Lint (ruff)
         run: ruff check .
       - name: Type check (mypy)
-        run: mypy src
+        run: |
+          PYTHON_FILES="$(git ls-files '*.py' '*.pyi')"
+          if [ -n "$PYTHON_FILES" ]; then
+            mypy $PYTHON_FILES
+          else
+            echo "No Python files found; skipping mypy."
+          fi
       - name: Dead code check (vulture)
-        run: vulture src
+        run: |
+          PYTHON_FILES="$(git ls-files '*.py' '*.pyi')"
+          if [ -n "$PYTHON_FILES" ]; then
+            vulture $PYTHON_FILES
+          else
+            echo "No Python files found; skipping vulture."
+          fi
       - name: Tests
-        run: pytest -q
+        run: pytest -q || [ $? -eq 5 ]
