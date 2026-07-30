@@ -5,7 +5,7 @@ __pycache__/
 venv/
 
 # Data & model artifacts
-data/
+/data/
 *.pt
 *.pth
 *.ckpt
