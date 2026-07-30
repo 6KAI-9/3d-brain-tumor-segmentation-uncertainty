@@ -1,0 +1,17 @@
+﻿# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Data & model artifacts
+data/
+*.pt
+*.pth
+*.ckpt
+mlruns/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
