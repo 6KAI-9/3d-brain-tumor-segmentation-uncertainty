@@ -1,0 +1,17 @@
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+warn_unused_ignores = true
+follow_imports = "silent"
+
+[tool.pytest.ini_options]
+# a globally installed pytest-asyncio (unrelated to this project) is incompatible
+# with pytest 9.x's collector API and crashes collection; this repo has no async tests
+addopts = "-p no:asyncio"

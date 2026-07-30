@@ -1,6 +1,7 @@
 ﻿torch>=2.3
 monai[all]>=1.4
 nibabel
+pyyaml>=6.0
 pytest>=8.0
 ruff>=0.6
 mypy>=1.10
